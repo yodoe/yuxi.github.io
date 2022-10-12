@@ -1,0 +1,39 @@
+
+<div class="a" id="aa">
+    <div class="b" id="bb">
+          <div id="c" class="cc">ssss</div>​
+</div>​
+</div>
+
+<style>
+
+#aa .b .cc{color:black;} .a .b #c{color:red;}
+</style>
+<script>
+    class Queue {
+    constructor() {
+        this.queue = []
+        this.map = new Map()
+    }
+    set(obj) {
+        this.queue.push(obj)
+        this.map.set(obj.a,this.queue.length -1)
+        return
+    }
+    get(value) {
+        if(!this.map.get(value)) {
+            return
+        }
+        console.log(value,this.map.get('key1'),'a');
+        let index = this.map.get(value)
+        return this.queue[index]
+    }
+}
+
+let q = new Queue()
+q.set({a:'key1'})
+q.set({a:'key2'})
+
+let res = q.get('key2')
+console.log(res)
+</script>
